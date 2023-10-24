@@ -7,7 +7,6 @@ def init_db():
     db = get_db()
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
-    print('Sube')
         
 def init_app(app):
     app.teardown_appcontext(close_db)
@@ -17,7 +16,6 @@ def init_app(app):
 def init_db_command():
     """Clear the existing data and create new tables."""
     init_db()
-    print('Sube')
     click.echo('Initialized the database.')
 
 def get_db():
