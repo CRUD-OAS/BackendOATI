@@ -16,23 +16,16 @@ def init_db_command():
 
 def get_db():
     if 'db' not in g:
-        try:
-            g.db = sqlite3.connect(
-                current_app.config['DATABASE'],
-                detect_types=sqlite3.PARSE_DECLTYPES
-            )
-        except sqlite3.OperationalError:
-            # La base de datos no existe, crearla
-            g.db = sqlite3.connect(
-                current_app.config['DATABASE'],
-                detect_types=sqlite3.PARSE_DECLTYPES
-            )
-            g.db.executescript(current_app.open_resource('schema.sql'))
+        g.db = sqlite3.connect(
+            current_app.config['DATABASE'],
+            detect_types=sqlite3.PARSE_DECLTYPES
+        )
+        g.db.row_factory = sqlite3.Row
     return g.db
 
 def init_db():
     db = get_db()
-    with current_app.open_resource('schema.sql') as f:
+    with current_app.open_resource(('schema.sql')) as f:
         db.executescript(f.read().decode('utf8'))
        
 
