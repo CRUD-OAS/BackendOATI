@@ -15,12 +15,12 @@ def create_app(test_config=None):
     # enable CORS
     CORS(app, resources={r'/*': {'origins': '*'}})
 
-    from flaskr import db
+    from . import db
     db.init_app(app)
-    from flaskr import candidatos
+    from . import candidatos
     app.register_blueprint(candidatos.bp)
-    from flaskr import partidos
+    from . import partidos
     app.register_blueprint(partidos.bp)
-    from flaskr import votos
+    from . import votos
     app.register_blueprint(votos.bp)
     return app
