@@ -1,1 +1,1 @@
-web: cd flaskr && gunicorn __init__:create_app
+web: cd flaskr && init-db && gunicorn __init__:create_app
