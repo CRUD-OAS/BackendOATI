@@ -3,11 +3,7 @@ import sqlite3
 import click
 from flask import current_app, g
 
-def init_db():
-    db = get_db()
-    with current_app.open_resource('schema.sql') as f:
-        db.executescript(f.read().decode('utf8'))
-        
+ 
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
@@ -27,6 +23,11 @@ def get_db():
         g.db.row_factory = sqlite3.Row
     return g.db
 
+def init_db():
+    db = get_db()
+    with current_app.open_resource('schema.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+       
 
 def close_db(e=None):
     db = g.pop('db', None)
