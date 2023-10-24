@@ -16,4 +16,6 @@ def create_app(test_config=None):
 
     from . import candidatos
     app.register_blueprint(candidatos.bp)
+    from . import partidos
+    app.register_blueprint(partidos.bp)
     return app
