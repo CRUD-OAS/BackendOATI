@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-
+from flask_cors import CORS
 
 def create_app(test_config=None):
     # create and configure the app
@@ -11,6 +11,8 @@ def create_app(test_config=None):
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
 
+    # enable CORS
+    CORS(app, resources={r'/*': {'origins': '*'}})
     from . import db
     db.init_app(app)
 
