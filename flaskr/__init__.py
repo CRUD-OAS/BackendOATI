@@ -23,6 +23,5 @@ def create_app(app):
     from . import votos
     app.register_blueprint(votos.bp)
     return app
-
 app = Flask(__name__)
 app = create_app(app)
