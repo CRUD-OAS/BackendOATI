@@ -1,1 +1,1 @@
-web: cd flaskr && flask run --host=0.0.0.0
+web: cd flaskr && waitress-serve --call 'flaskr:create_app'
