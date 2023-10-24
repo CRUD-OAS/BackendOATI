@@ -1,1 +1,1 @@
-web: cd flaskr && waitress-serve --call 'flaskr:__init__'
+web: cd flaskr && gunicorn __init__:create_app
