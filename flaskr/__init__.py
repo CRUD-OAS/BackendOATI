@@ -18,4 +18,6 @@ def create_app(test_config=None):
     app.register_blueprint(candidatos.bp)
     from . import partidos
     app.register_blueprint(partidos.bp)
+    from . import votos
+    app.register_blueprint(votos.bp)
     return app
