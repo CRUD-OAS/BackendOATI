@@ -5,8 +5,6 @@ from flask_cors import CORS
 
 def create_app():
     # create and configure the app
-    print('prueba')
-    app = Flask(__name__)
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
@@ -24,3 +22,6 @@ def create_app():
     from . import votos
     app.register_blueprint(votos.bp)
     return app
+
+app = Flask(__name__)
+app = create_app()
