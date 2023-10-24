@@ -3,8 +3,9 @@ import os
 from flask import Flask
 from flask_cors import CORS
 
-def create_app(test_config=None):
+def create_app():
     # create and configure the app
+    print('prueba')
     app = Flask(__name__)
     app.config.from_mapping(
         SECRET_KEY='dev',
