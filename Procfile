@@ -1,1 +1,1 @@
-web: cd flaskr && waitress-serve --call 'flaskr:create_app'
+web:waitress-serve --call 'flaskr:create_app'
