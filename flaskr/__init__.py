@@ -3,7 +3,8 @@ import os
 from flask import Flask
 from flask_cors import CORS
 
-def create_app():
+
+def create_app(app):
     # create and configure the app
     app.config.from_mapping(
         SECRET_KEY='dev',
@@ -24,4 +25,4 @@ def create_app():
     return app
 
 app = Flask(__name__)
-app = create_app()
+app = create_app(app)
