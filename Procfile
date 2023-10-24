@@ -1,1 +1,1 @@
-web: cd flaskr && python bd.py init-db && gunicorn __init__:create_app
+web: cd flaskr && flask --app init-db && gunicorn __init__:create_app
