@@ -1,1 +1,1 @@
-web: gunicorn main:app
+web: cd flaskr && flask run --host=0.0.0.0
