@@ -13,9 +13,9 @@ def create_app(test_config=None):
 
     # enable CORS
     CORS(app, resources={r'/*': {'origins': '*'}})
+
     from . import db
     db.init_app(app)
-
     from . import candidatos
     app.register_blueprint(candidatos.bp)
     from . import partidos
